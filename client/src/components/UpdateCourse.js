@@ -70,15 +70,15 @@ export default class UpdateCourse extends Component {
             password: password
         }
 
-        const update = await context.data.updateCourses(`/courses/${id}`, updatedCourse, credentials );
-        if(update.length === 0){
+        const updateCourse = await context.data.updateCourses(`/courses/${id}`, updatedCourse, credentials );
+        if(updateCourse.length === 0){
             console.log('Courses has been updated sucessfully');
             this.props.history.push(from);
 
         }
         else{
             this.setState({
-                errors: update
+                errors: updateCourse
             })
         }
     }

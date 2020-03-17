@@ -127,13 +127,9 @@ router.put('/:id', authenticateUser, asyncHandler (async( req, res) => {
         const data = req.body;
         // if logged in id and course id is same then update
         if(courseUserId === currentUserID){  
-            if(data.title && data.description){
-                await course.update(req.body);
-                res.status(204).end();
-            }
-            else{
-                res.status(400).json({ message: 'Title and Description needs to be updated'});
-            }
+            await course.update(req.body);
+            res.status(204).end();
+           
         }
         else{
             res.status(403).json({ message: 'The current user doesnt own the requested course'});

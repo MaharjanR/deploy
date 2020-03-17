@@ -53,6 +53,10 @@ export default class CreateCourse extends Component {
         }
     }
 
+    onCancel = () => {
+        this.props.history.push('/');
+    }
+
     render(){
         const { authenticatedUser } = this.props.context;
         const name = `${authenticatedUser.firstName} ${authenticatedUser.lastName}`;
