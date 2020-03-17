@@ -40,8 +40,12 @@ export default class CourseDetail extends Component{
 
     render(){
         
+        const {authenticatedUser} = this.props.context;
         const {course} = this.state;
-        const userEmail= this.props.context.authenticatedUser.emailAddress;
+        let userEmail= null;
+        if(authenticatedUser){
+            userEmail= authenticatedUser.emailAddress;
+        }
         let value;
 
         if(course){
